@@ -4,7 +4,7 @@
 function validarRazon(razon) {
     let cadena_errores = "";
     let enmedio = razon.substr(1, razon.length - 2);
-    //let razon = document.formulario.razon.value.toUpperCase();
+    //let razon = document.formulario.nombre.value.toUpperCase();
     let regexp = /[ºª\-\.]/;
     let punto = ".";
     if (!esLetra(razon.charAt(0))) {
@@ -24,7 +24,7 @@ function validarRazon(razon) {
 //codigo empleado
 function validarCodEmp(codigo_empresa) {
     let cadena_errores = "";
-    //let codigo_empresa = document.formulario.codigo_empresa.value;
+    //let codigo_empresa = document.formulario.codempresa.value;
     let codigo_emp = codigo_empresa.trim();
     let expReg = /^[a-záéíóúüñ0-9]{5,10}$/ig;
     if (!expReg.test(codigo_emp)) {
