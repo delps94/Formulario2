@@ -18,11 +18,11 @@
 
 <body>
 
-    <form name="formulario">
+    <form action="" method  = "POST" name="formulario">
 
-        Razon social/Apellidos y nombre <input type="text" name="nombre" /><br><br>
+        Razon social/Apellidos y nombre <input type="text" name="nombre" /> <input type="text" name="error_razon" style="visibility: hidden;" readonly></input><br><br>
 
-        Codigo de la Empresa <input type="text" name="codempresa" /><br><br>
+        Codigo de la Empresa <input type="text" name="codempresa" /><input type="text" name="error_codempresa" style="visibility: hidden;" readonly></input><br><br>
 
         CIF/NIF de la Empresa <input type="text" name="cifnif" /><br><br>
 
@@ -180,7 +180,7 @@
 
         <br>
 
-        <input type="button" value="Validar" name="validar">
+        <input type="submit" name="Validar" value="Validar"></input>
 
         <input type="reset" value="Limpiar">
 

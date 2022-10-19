@@ -3,45 +3,32 @@ function inicio(){
     document.formulario.onsubmit = validForm;
 }
 function validForm(){
-    let enviar = true;
+    let valido = true;
+    valido = validarRazon() && valido;
+    valido = validarCodigoEmpresa() && valido;
     //----lamando funciones de abajo y si se cumplen todas, enviar el formulario = true
-    return enviar;
+    return valido;
 }
-
-//aqui los ejercicios donde hay que usar regexp y llamar a las funciones que hay en validaciones
-
-//razon social
 function validarRazon() {
+    let valido = true;
     let razonF = document.formulario.nombre.value;
-    let razon = razonF.trim();
-    let cadena_errores = "";
-    let enmedio = razon.substr(1, razon.length - 2);
-    let regexp = /[ºª\-\.]/;
-    let punto = ".";
-    if (!esLetra(razon.charAt(0))) {
-        cadena_errores += "En validar razón, Error el primer caracter es incorreecto, debe ser una letra \n";
+    let regExp = /^[a-zA-ZñÑ][a-zA-ZñÑºª\-\.0-9 ]*[a-zA-ZñÑ\.0-9]$/;
+    if(!regExp.test(razonF)){
+        document.formulario.error_razon.value ="Error en razon";
+        document.formulario.error_razon.style = "visibility: visible";
+        valido = false;
     }
-    if (!esLetra(razon.charAt(razon.length - 1)) && !esNumero(razon.charAt(razon.length - 1)) && razon.charAt(razon.length - 1) != punto) {
-
-        cadena_errores += "En validar razón, Error el ultimo caracter es incorreecto \n";
-    }
-    for (let i = 0; i < enmedio.length; i++) {
-        if (!esLetra(enmedio[i]) && !esNumero(enmedio[i]) && !regexp.test(enmedio[i])) {
-            cadena_errores += "Error deben de ser caracteres permitidos \n";
-        }
-    }
-    return cadena_errores;
-}
-//codigo empleado
-function validarCodEmp(codigo_empresa) {
-    let cadena_errores = "";
-    let codigo_empresa = document.formulario.codempresa.value;
-    let codigo_emp = codigo_empresa.trim();
-    let expReg = /^[a-záéíóúüñ0-9]{5,10}$/ig;
-    if (!expReg.test(codigo_emp)) {
-        cadena_errores += "Error la la cadena debe de contener letras  y/o numeros y un minimo de 5 y maximo de 10 de longitud \n";
-    }
-    return cadena_errores;
+    return valido;
 }
 
-//validar que nif cif de la empresa sea correcto --> no necesita regexp
+function validarCodigoEmpresa() {
+    let valido = true;
+    let valorDelCampo = document.formulario.codempresa.value;
+    let regExp = /[a-zA-ZñÑ0-9]{5,10}/;
+    if(!regExp.test(valorDelCampo)){
+        document.formulario.error_codempresa.value ="Error encódigo de empresa";
+        document.formulario.error_codempresa.style = "visibility: visible";
+        valido = false;
+    }
+    return valido;
+}
