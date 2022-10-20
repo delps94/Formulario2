@@ -1,4 +1,41 @@
+//fincion nif
+function esNif(cadenaNif) {
 
+    let regexp = /[0-9]{8}[A-Z]{1}$/i;
+    let regexp2 = /^[XYZLKM][0-9]{7}[A-Z]$/i;
+    if (!regexp.test(cadenaNif) && !regexp2.test(cadenaNif)) {
+        return 0;
+    } else {
+        calculoCaracterControl = cadenaNif.substr(0, 8);
+        let cambio = "";
+        if (calculoCaracterControl.charAt(0) == "Y") {
+            cambio = calculoCaracterControl.replace("Y", "1");
+        }
+        else if (calculoCaracterControl.charAt(0) == "Z") {
+            cambio = calculoCaracterControl.replace("Z", "2");
+        } else if (calculoCaracterControl.charAt(0) == "X" || calculoCaracterControl.charAt(0) == 'K' ||
+            calculoCaracterControl.charAt(0) == "L" || calculoCaracterControl.charAt(0) == "M") {
+            let primeraLetra = calculoCaracterControl.charAt(0);
+            cambio = calculoCaracterControl.replace(primeraLetra, "0");
+        } else {
+            cambio = calculoCaracterControl;
+        }
+        let arr = new Array();
+        arr = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
+        let posicion = 0;
+        posicion = parseInt(cambio) % 23;
+        if (cadenaNif.substr(-1) != arr[posicion]) {
+            //console.log("el nif no es correcto, el caracter de control es erroneo");
+            return 2;
+        }
+        if (!cambio >= 100000) {
+            //console.log("Se ha introducido un DNI, se ha pasado un número de entre 6 y 8 dígitos con un valor mínimo de 100000.");
+            return 3;
+        }
+    }
+
+    return 1;
+}
 
 //funcion cif
 function esCif(cadenaCif) {
