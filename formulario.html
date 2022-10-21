@@ -18,14 +18,19 @@
 
 <body>
 
-    <form action="" method  = "POST" name="formulario">
-        <legend><h3>Domicilio Social Particular:</h3></legend>
+    <form action="" method="POST" name="formulario">
+        <legend>
+            <h3>Domicilio Social Particular:</h3>
+        </legend>
 
-        <label for="razonSocial">Razon social/Apellidos y nombre:</label><input type="text" name="nombre" /> <input type="text" name="error_razon" style="visibility: hidden;" readonly></input><br><br>
+        <label for="razonSocial">Razon social/Apellidos y nombre:</label><input type="text" name="nombre" /> <input
+            type="text" name="error_razon" style="visibility: hidden;" readonly></input><br><br>
 
-        <label for="codigoEmpresa">Codigo de la Empresa </label><input type="text" name="codempresa" /><input type="text" name="error_codempresa" style="visibility: hidden;" readonly></input><br><br>
+        <label for="codigoEmpresa">Codigo de la Empresa </label><input type="text" name="codempresa" /><input
+            type="text" name="error_codempresa" style="visibility: hidden;" readonly></input><br><br>
 
-      <label for="cn">CIF/NIF de la Empresa</label><input type="text" name="cifnif" /><input type="text" name="error_nifcif" style="visibility: hidden;" readonly><br><br>
+        <label for="cn">CIF/NIF de la Empresa</label><input type="text" name="cifnif" /><input type="text"
+            name="error_nifcif" style="visibility: hidden;" readonly><br><br>
 
         <fieldset>
 
@@ -51,15 +56,15 @@
 
             <legend>Domicilio Social/Particular</legend>
 
-          <label for="direc">Direccion</label><input type="text" name="direccion" /><br><br>
+            <label for="direc">Direccion</label><input type="text" name="direccion" /><br><br>
 
-         <label for="telf">Telefono</label><input type="text" name="telefono" /><br><br>
+            <label for="telf">Telefono</label><input type="text" name="telefono" /><br><br>
 
-         <label for="local">Localidad</label><input type="text" name="localidad" /><br><br>
+            <label for="local">Localidad</label><input type="text" name="localidad" /><br><br>
 
-          <label for="codp">Codigo Postal </label><input type="text" name="codpostal" /><br><br>
+            <label for="codp">Codigo Postal </label><input type="text" name="codpostal" /><br><br>
 
-         <label for="prov">Provincia</label><input type="text" name="provincia" /><br><br>
+            <label for="prov">Provincia</label><input type="text" name="provincia" /><br><br>
             Fax <input type="text" name="fax" maxlength="9" />
         </fieldset>
 
@@ -69,64 +74,52 @@
 
             <legend>Datos Bancarios</legend>
 
-            Codigos del banco <input type="text" name="codbanco" maxlength=4 /><br><br>
+            <label for="cb">Codigos del banco</label><input type="text" name="codbanco" maxlength=4 /><br><br>
 
-            Codigo oficina <input type="text" name="codoficina" maxlength=4 /><br><br>
+            <label for="co">Codigo oficina</label><input type="text" name="codoficina" maxlength=4 /><br><br>
 
-            Codigo control <input type="text" name="codcontrol" readonly /><br><br>
+            <label for="cc">Codigo control</label><input type="text" name="codcontrol" readonly /><br><br>
 
-            Numero de cuenta <input type="text" name="numcuenta" maxlength=10 /><br><br>
+            <label for="numcu">Numero de cuenta</label><input type="text" name="numcuenta" maxlength=10 /><br><br>
 
-            IBAN <input type="text" name="iban" /><br>
+            <label for="ib">IBAN</label><input type="text" name="iban" /><br>
 
         </fieldset>
 
         <br>
 
-        Fecha Constitucion Empresa <input type="date" /><br><br>
+        <label for="fname">Fecha Constitucion Empresa</label><input type="text" name="fecha"><br><br>
 
-        Numero de trabajadores <input type="number" min="1"><br><br>
+        <label for="numt">Numero de trabajadores</label><input type="number" min="1"><br><br>
 
-        Numero de Fabricas de la Empresa <input type="number" min="1"><br><br>
+        <label for="numem"></label>Numero de Fabricas de la Empresa <input type="number" min="1"><br><br>
 
         <fieldset>
 
             <legend>Comunidades en las que hay fabricas</legend>
 
-            <label><input type="checkbox" name="comunidad1" value="andalucia" /> Andalucía</label>
-
-            <label><input type="checkbox" name="comunidad2" value="aragon" /> Aragón</label>
-
-            <label><input type="checkbox" name="comunidad3" value="baleares" /> Islas Baleares</label>
-
-            <label><input type="checkbox" name="comunidad4" value="canarias" /> Canarias</label>
-
-            <label><input type="checkbox" name="comunidad5" value="cantabria" /> Cantabria</label>
-
-            <label><input type="checkbox" name="comunidad6" value="mancha" /> Castilla-La Mancha</label><br>
-
-            <label><input type="checkbox" name="comunidad7" value="leon" /> Castilla y León</label>
-
-            <label><input type="checkbox" name="comunidad8" value="cataluna" /> Cataluña</label>
-
-            <label><input type="checkbox" name="comunidad9" value="madrid" /> Comunidad de Madrid</label>
-
-            <label><input type="checkbox" name="comunidad10" value="navarra" /> Comunidad Foral de Navarra</label><br>
-
-            <label><input type="checkbox" name="comunidad11" value="valencia" /> Comunidad Valenciana</label>
-
-            <label><input type="checkbox" name="comunidad12" value="extremadura" /> Extremadura</label>
-
-            <label><input type="checkbox" name="comunidad13" value="galicia" /> Galicia</label>
-
-            <label><input type="checkbox" name="comunidad14" value="pvasco" /> País Vasco</label>
-
-            <label><input type="checkbox" name="comunidad15" value="asturias" /> Principado de Asturias</label><br>
-
-            <label><input type="checkbox" name="comunidad16" value="murcia" /> Región de Murcia</label>
-
-            <label><input type="checkbox" name="comunidad17" value="rioja" /> La Rioja</label>
-
+            <select name="comunidades" multiple>
+                <!-- <option value="0" selected disabled hidden>Escoja una de estas opciones</option> -->
+                <option value="AndalucÃ­a">Andalucía</option>
+                <option value="AragÃ³n">Aragón</option>
+                <option value="Principado de Asturias">Principado de Asturias</option>
+                <option value="Islas Baleares">Islas Baleares</option>
+                <option value="PaÃ­s Vasco">Paí­s Vasco</option>
+                <option value="Canarias">Canarias</option>
+                <option value="Cantabria">Cantabria</option>
+                <option value="Castilla-La Mancha">Castilla-La Mancha</option>
+                <option value="Castilla y LeÃ³n">Castilla y León</option>
+                <option value="CataluÃ±a">Cataluña</option>
+                <option value="Extremadura">Extremadura</option>
+                <option value="Galicia">Galicia</option>
+                <option value="Comunidad de Madrid">Comunidad de Madrid</option>
+                <option value="RegiÃ³n de Murcia">Región de Murcia</option>
+                <option value="Comunidad Foral de Navarra">Comunidad Foral de Navarra</option>
+                <option value="La Rioja">La Rioja</option>
+                <option value="Comunidad Valenciana">Comunidad Valenciana</option>
+                <option value="Ceuta">Ceuta</option>
+                <option value="Melilla">Melilla</option>
+            </select>
         </fieldset>
 
         <br>
@@ -165,17 +158,23 @@
 
             <legend>Tipo de Empresa</legend>
 
-            <label><input type="checkbox" name="tipo1" value="sa" /> S.A.</label>
+            <input type="radio"  name="tipo" value="HTML">
+            <label for="sa">S.A </label>
 
-            <label><input type="checkbox" name="tipo2" value="sl" /> S.L.</label>
+            <input type="radio"  name="tipo" value="HTML">
+            <label for="sl">S.L </label>
 
-            <label><input type="checkbox" name="tipo3" value="sal" /> S.A.L.</label>
+            <input type="radio"  name="tipo" value="HTML">
+            <label for="sal">S.A.L </label>
 
-            <label><input type="checkbox" name="tipo4" value="cooperativa" /> Cooperativa</label>
+            <input type="radio"  name="tipo" value="HTML">
+            <label for="Cooperativa">Cooperativa</label>
 
-            <label><input type="checkbox" name="tipo5" value="autonomo" /> Automomo</label>
+            <input type="radio"  name="tipo" value="HTML">
+            <label for="Autónomo">Autónomo </label>
 
-            <label><input type="checkbox" name="tipo6" value="otro" /> Otro</label>
+            <input type="radio"  name="tipo" value="HTML">
+            <label for="Otra">Otra </label>  
 
         </fieldset>
 
