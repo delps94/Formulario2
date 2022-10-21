@@ -1,60 +1,59 @@
 window.onload = inicio;
-function inicio(){
+function inicio() {
     document.formulario.onsubmit = validForm;
 }
-function validForm(){
+function validForm() {
+    //----llamando todas las funciones abajo y si se cumplen todas, enviar el formulario --> valido == true
+    //[importante!!!!!! ---> invocar a las funciones de esta manera y en este orden, asi no se interrumpe la ejecucion de
+    //las funciones y nos saltará siempre el error en caso de que los haya (ejemplo false = false && false --> dara false)
+    //pero al estar la funcion antes, se ejecutara y saltara el error]<--------------------
     let valido = true;
     valido = validarRazon() && valido;
     valido = validarCodigoEmpresa() && valido;
     valido = botonSelect() && valido;
     valido = validarDesplegable() && valido;
-    //valido = nif_Cif() && valido;
-    //----lamando funciones de abajo y si se cumplen todas, enviar el formulario = true
+    valido = validNif_Cif() && valido;
+
     return valido;
 }
+//validacion de razon social
 function validarRazon() {
     let valido = true;
     let razonF = document.formulario.nombre.value;
     let regExp = /^[a-zA-ZñÑ][a-zA-ZñÑºª\-\.0-9 ]*[a-zA-ZñÑ\.0-9]$/;
-    if(!regExp.test(razonF)){
-        document.formulario.error_razon.value ="Error en razon";
+    if (!regExp.test(razonF)) {
+        document.formulario.error_razon.value = "Error en razon";
         document.formulario.error_razon.style = "visibility: visible";
         valido = false;
     }
     return valido;
 }
-
+//validacion codigo de la empresa
 function validarCodigoEmpresa() {
     let valido = true;
     let valorDelCampo = document.formulario.codempresa.value;
     let regExp = /[a-zA-ZñÑ0-9]{5,10}/;
-    if(!regExp.test(valorDelCampo)){
-        document.formulario.error_codempresa.value ="Error encódigo de empresa";
+    if (!regExp.test(valorDelCampo)) {
+        document.formulario.error_codempresa.value = "Error encódigo de empresa";
         document.formulario.error_codempresa.style = "visibility: visible";
         valido = false;
     }
     return valido;
 }
-
-// function validNif_Cif(){
-//     let valido = true;
-//     let cifNif = document.formulario.cifnif.value.toUpperCase();
-//     //alert(nif);
-//     let resultado = nif_Cif(cifNif);
-//     if(resultado != "n1" && resultado != "n2"){
-//         document.formulario.error_nifcif.value = "Error,el nif no es correcto";
-//         document.formulario.error_nifcif.style = "visibility: visible";
-    
-//         valido = false;
-//     }
-//     return valido;  
-// }
+//validacion de si nifcif es correcto
+function validNif_Cif() {
+    let valido = true;
+    let cifNif = document.formulario.cifnif.value;
+    let resultado = nif_Cif(cifNif);
+    if (resultado == "n2" || resultado == "n3" || resultado == "c2" || resultado == 0) {
+        document.formulario.error_nifcif.value = "Error,el nif no es correcto";
+        document.formulario.error_nifcif.style = "visibility: visible";
+        valido = false;
+    }
+    return valido;
+}
 //console.log(validNif_Cif("53909901V"));
-
-        // document.formulario.error_nifcif.value = "Error, el cif no es correcto";
-        // document.formulario.error_nifcif.style = "visibility: visible";
-
-//validar radios
+////validar los radios: una funcion para validarlos todos los tipos radios y la funcion de iterateOverRadioGroups para recorrer y hacer el .checked
 function iterateOverRadioGroups(listOfRadioButtons) {
     for (var i = 0; i < listOfRadioButtons.length; i++) {
         if (listOfRadioButtons[i].checked) {
@@ -63,35 +62,31 @@ function iterateOverRadioGroups(listOfRadioButtons) {
     }
     return false;
 }
-
-//validar los radios: una funcion para validarlos todos los tipos radios y la funcion de iterateOverRadioGroups para recorrer y hacer el .checked
 function botonSelect() {
-    let valido=true;
-    let radio = document.formulario.tipopersona;
-    let tipo = document.formulario.tipo;
+    let valido = true;
+    let radio = document.formulario.tipopersona;//nos devuelve un nodo con todos los tipopersona
+    let tipo = document.formulario.tipo;//nos devuelve un nodo con todos los tipos
     if (!iterateOverRadioGroups(radio)) {
-          document.formulario.error_tipo.value = "Error,debes elegir un tipo";
-         document.formulario.error_tipo.style = "visibility: visible";
+        document.formulario.error_tipo.value = "Error,debes elegir un tipo";
+        document.formulario.error_tipo.style = "visibility: visible";
         valido = false;
     }
     if (!iterateOverRadioGroups(tipo)) {
-        
         document.formulario.error_tipoemp.value = "Error,debes elegir un tipo";
-         document.formulario.error_tipoemp.style = "visibility: visible";
+        document.formulario.error_tipoemp.style = "visibility: visible";
         valido = false;
     }
     return valido;
 }
-
+//controlar en el apartado comunidades elegir minimo dos campos
 function validarDesplegable() {
-    let valido=true;
-    let indice = document.formulario.comunidades.options;
-    let counter = 0;
-    
+    let valido = true;
+    let indice = document.formulario.comunidades.options;//nos devuelve un array con todas las opciones
+    let counter = 0;//contador para comparar si se cumple el minimo de 2 o no
     for (let i = 0; i < indice.length; i++) {
-        
+
         if (indice[i].selected) {
-            console.log("----"+i);
+            console.log("----" + i);
             counter++;
         }
     }
@@ -99,3 +94,4 @@ function validarDesplegable() {
     return valido;
 
 }
+//----------------------fin parte Katy------------------------------------------------
