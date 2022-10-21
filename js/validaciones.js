@@ -85,7 +85,7 @@ function esCif(cadenaCif) {
     return 2; //cif erroneo o caracter de control erroneo
 }
 
-
+//
 //funcion codigos de control
 
 //funcion calculoIbanEspaña

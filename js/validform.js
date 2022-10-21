@@ -43,3 +43,50 @@ function nif_Cif(){
     }
     return valido;
 }
+//validar radios
+function iterateOverRadioGroups(listOfRadioButtons) {
+    for (var i = 0; i < listOfRadioButtons.length; i++) {
+        if (listOfRadioButtons[i].checked) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+function botonSelect() {
+    let cadena_errores = "";
+    let radio = document.formulario.radios;
+    let sector = document.formulario.sector;
+    let tipo = document.formulario.tipo;
+    if (!iterateOverRadioGroups(radio)) {
+        cadena_errores += "No has seleccionado personal\n ";
+    }
+    if (!iterateOverRadioGroups(sector)) {
+        cadena_errores += "No has seleccionado sector\n ";
+    }
+    if (!iterateOverRadioGroups(tipo)) {
+        cadena_errores += "No has seleccionado tipo\n ";
+
+    }
+    return cadena_errores;
+}
+
+
+//validar desplegable
+function validarDesplegable() {
+    let cadena_errores = "";
+    let indice = document.formulario.comunidades.options;
+    let counter = 0;
+    
+    for (let i = 0; i < indice.length; i++) {
+        
+        if (indice[i].selected) {
+            console.log("----"+i);
+            counter++;
+        }
+    }
+    if (counter < 2) cadena_errores = "tiene que seleccionar al menos dos comunidades";
+    return cadena_errores;
+
+}
