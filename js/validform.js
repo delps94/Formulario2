@@ -6,6 +6,7 @@ function validForm(){
     let valido = true;
     valido = validarRazon() && valido;
     valido = validarCodigoEmpresa() && valido;
+    valido = nif_Cif() && valido;
     //----lamando funciones de abajo y si se cumplen todas, enviar el formulario = true
     return valido;
 }
@@ -28,6 +29,16 @@ function validarCodigoEmpresa() {
     if(!regExp.test(valorDelCampo)){
         document.formulario.error_codempresa.value ="Error encódigo de empresa";
         document.formulario.error_codempresa.style = "visibility: visible";
+        valido = false;
+    }
+    return valido;
+}
+function nif_Cif(){
+    let valido = true;
+    let cifNif= document.formulario.cifnif.value;
+    if(!esCif(cifNif)&& !esNif()){
+        document.formulario.error_nifcif.value = "Erro, no es cif ni nif";
+        document.formulario.error_nifcif.style = "visibility: visible";
         valido = false;
     }
     return valido;

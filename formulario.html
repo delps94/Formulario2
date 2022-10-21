@@ -19,12 +19,13 @@
 <body>
 
     <form action="" method  = "POST" name="formulario">
+        <legend><h3>Domicilio Social Particular:</h3></legend>
 
-        Razon social/Apellidos y nombre <input type="text" name="nombre" /> <input type="text" name="error_razon" style="visibility: hidden;" readonly></input><br><br>
+        <label for="razonSocial">Razon social/Apellidos y nombre:</label><input type="text" name="nombre" /> <input type="text" name="error_razon" style="visibility: hidden;" readonly></input><br><br>
 
-        Codigo de la Empresa <input type="text" name="codempresa" /><input type="text" name="error_codempresa" style="visibility: hidden;" readonly></input><br><br>
+        <label for="codigoEmpresa">Codigo de la Empresa </label><input type="text" name="codempresa" /><input type="text" name="error_codempresa" style="visibility: hidden;" readonly></input><br><br>
 
-        CIF/NIF de la Empresa <input type="text" name="cifnif" /><input type="text" name="error_nifcif" style="visibility: hidden;" readonly><br><br>
+      <label for="cn">CIF/NIF de la Empresa</label><input type="text" name="cifnif" /><input type="text" name="error_nifcif" style="visibility: hidden;" readonly><br><br>
 
         <fieldset>
 
@@ -50,15 +51,15 @@
 
             <legend>Domicilio Social/Particular</legend>
 
-            Direccion <input type="text" name="direccion" /><br><br>
+          <label for="direc">Direccion</label><input type="text" name="direccion" /><br><br>
 
-            Telefono <input type="text" name="telefono" /><br><br>
+         <label for="telf">Telefono</label><input type="text" name="telefono" /><br><br>
 
-            Localidad <input type="text" name="localidad" /><br><br>
+         <label for="local">Localidad</label><input type="text" name="localidad" /><br><br>
 
-            Codigo Postal <input type="text" name="codpostal" /><br><br>
+          <label for="codp">Codigo Postal </label><input type="text" name="codpostal" /><br><br>
 
-            Provincia <input type="text" name="provincia" /><br><br>
+         <label for="prov">Provincia</label><input type="text" name="provincia" /><br><br>
             Fax <input type="text" name="fax" maxlength="9" />
         </fieldset>
 
