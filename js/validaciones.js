@@ -1,4 +1,4 @@
-//fincion nif
+//fincion nif -----------------> katy
 function esNif(cadenaNif) {
 
     let regexp = /[0-9]{8}[A-Z]{1}$/i;
@@ -37,7 +37,7 @@ function esNif(cadenaNif) {
     return 1;
 }
 
-//funcion cif
+//funcion cif ----------------------> katy
 function esCif(cadenaCif) {
 
     let sumaPares = 0;
@@ -85,9 +85,31 @@ function esCif(cadenaCif) {
     return 2; //cif erroneo o caracter de control erroneo
 }
 
-//
-//funcion codigos de control
+//funcion nif cif juntos -------------------------> katy
+function nif_Cif(cadena){
+    let n2 = "Se ha introducido un NIF erróneo.El carácter de control es erróneo ";
+    let n1="Se ha introducido un NIF correcto";
+    let n3="Se ha introducido un DNI,se ha pasado un número de entre 6 y 8 dígitos con un valor mínimo de 100000 ";
+    let c1="Se ha introducido un CIF correcto ";
+    let c2="Se ha introducido un cif erróneo.El carácter de control es erróneo ";
+    if(esNif(cadena)== 2){
+        return n2;
+    }else if(esNif(cadena)==3){
+        return n3;
+    }else if(esNif(cadena)==1){
+        return n1;
+    }
+    if(esCif(cadena)==0){
+        return 0;
+    }else if(esCif(cadena)==2){
+        return c2;
+    }else{
+        return c1;
+    }  
+}
+console.log(nif_Cif("V31261"));
+//funcion codigos de control -----------------> JHON
 
-//funcion calculoIbanEspaña
+//funcion calculoIbanEspaña -------------------------> cris
 
-//funcion comprobarIban
+//funcion comprobarIban-----------------------------> cris

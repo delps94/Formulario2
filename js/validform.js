@@ -6,7 +6,9 @@ function validForm(){
     let valido = true;
     valido = validarRazon() && valido;
     valido = validarCodigoEmpresa() && valido;
-    valido = nif_Cif() && valido;
+    valido = botonSelect() && valido;
+    valido = validarDesplegable() && valido;
+    //valido = nif_Cif() && valido;
     //----lamando funciones de abajo y si se cumplen todas, enviar el formulario = true
     return valido;
 }
@@ -33,16 +35,25 @@ function validarCodigoEmpresa() {
     }
     return valido;
 }
-function nif_Cif(){
-    let valido = true;
-    let cifNif= document.formulario.cifnif.value;
-    if(!esCif(cifNif)&& !esNif()){
-        document.formulario.error_nifcif.value = "Erro, no es cif ni nif";
-        document.formulario.error_nifcif.style = "visibility: visible";
-        valido = false;
-    }
-    return valido;
-}
+
+// function validNif_Cif(){
+//     let valido = true;
+//     let cifNif = document.formulario.cifnif.value.toUpperCase();
+//     //alert(nif);
+//     let resultado = nif_Cif(cifNif);
+//     if(resultado != "n1" && resultado != "n2"){
+//         document.formulario.error_nifcif.value = "Error,el nif no es correcto";
+//         document.formulario.error_nifcif.style = "visibility: visible";
+    
+//         valido = false;
+//     }
+//     return valido;  
+// }
+//console.log(validNif_Cif("53909901V"));
+
+        // document.formulario.error_nifcif.value = "Error, el cif no es correcto";
+        // document.formulario.error_nifcif.style = "visibility: visible";
+
 //validar radios
 function iterateOverRadioGroups(listOfRadioButtons) {
     for (var i = 0; i < listOfRadioButtons.length; i++) {
@@ -53,29 +64,27 @@ function iterateOverRadioGroups(listOfRadioButtons) {
     return false;
 }
 
-
+//validar los radios: una funcion para validarlos todos los tipos radios y la funcion de iterateOverRadioGroups para recorrer y hacer el .checked
 function botonSelect() {
-    let cadena_errores = "";
-    let radio = document.formulario.radios;
-    let sector = document.formulario.sector;
+    let valido=true;
+    let radio = document.formulario.tipopersona;
     let tipo = document.formulario.tipo;
     if (!iterateOverRadioGroups(radio)) {
-        cadena_errores += "No has seleccionado personal\n ";
-    }
-    if (!iterateOverRadioGroups(sector)) {
-        cadena_errores += "No has seleccionado sector\n ";
+          document.formulario.error_tipo.value = "Error,debes elegir un tipo";
+         document.formulario.error_tipo.style = "visibility: visible";
+        valido = false;
     }
     if (!iterateOverRadioGroups(tipo)) {
-        cadena_errores += "No has seleccionado tipo\n ";
-
+        
+        document.formulario.error_tipoemp.value = "Error,debes elegir un tipo";
+         document.formulario.error_tipoemp.style = "visibility: visible";
+        valido = false;
     }
-    return cadena_errores;
+    return valido;
 }
 
-
-//validar desplegable
 function validarDesplegable() {
-    let cadena_errores = "";
+    let valido=true;
     let indice = document.formulario.comunidades.options;
     let counter = 0;
     
@@ -86,7 +95,7 @@ function validarDesplegable() {
             counter++;
         }
     }
-    if (counter < 2) cadena_errores = "tiene que seleccionar al menos dos comunidades";
-    return cadena_errores;
+    if (counter < 2) valido = false;
+    return valido;
 
 }

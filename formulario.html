@@ -23,18 +23,19 @@
             <h3>Domicilio Social Particular:</h3>
         </legend>
 
-        <label for="razonSocial">Razon social/Apellidos y nombre:</label><input type="text" name="nombre" /> <input
-            type="text" name="error_razon" style="visibility: hidden;" readonly></input><br><br>
+        <label for="razonSocial">Razon social/Apellidos y nombre:</label><input type="text" name="nombre"/> <input
+            type="text" name="error_razon" id="errores" style="visibility: hidden;" readonly></input><br><br>
 
         <label for="codigoEmpresa">Codigo de la Empresa </label><input type="text" name="codempresa" /><input
-            type="text" name="error_codempresa" style="visibility: hidden;" readonly></input><br><br>
+            type="text" name="error_codempresa" id="errores" style="visibility: hidden;" readonly></input><br><br>
 
         <label for="cn">CIF/NIF de la Empresa</label><input type="text" name="cifnif" /><input type="text"
-            name="error_nifcif" style="visibility: hidden;" readonly><br><br>
+            name="error_nifcif" id="errores" style="visibility: hidden;" readonly><br><br>
 
         <fieldset>
 
-            <legend>Tipo de persona</legend>
+            <legend>Tipo de persona</legend><input
+            type="text" name="error_tipo" id="errores" style="visibility: hidden;" readonly></input><br><br>
 
             <label>
 
@@ -156,7 +157,8 @@
 
         <fieldset>
 
-            <legend>Tipo de Empresa</legend>
+            <legend>Tipo de Empresa</legend><input
+            type="text" name="error_tipoemp"id="errores" style="visibility: hidden;" readonly></input>
 
             <input type="radio"  name="tipo" value="HTML">
             <label for="sa">S.A </label>
