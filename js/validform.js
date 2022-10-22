@@ -22,7 +22,7 @@ function validarRazon() {
     let razonF = document.formulario.nombre.value;
     let regExp = /^[a-zA-ZñÑ][a-zA-ZñÑºª\-\.0-9 ]*[a-zA-ZñÑ\.0-9]$/;
     if (!regExp.test(razonF)) {
-        document.formulario.error_razon.value = "Error en razon";
+        document.formulario.error_razon.value = "Error en razon social";
         document.formulario.error_razon.style = "visibility: visible";
         valido = false;
     }
@@ -34,7 +34,7 @@ function validarCodigoEmpresa() {
     let valorDelCampo = document.formulario.codempresa.value;
     let regExp = /[a-zA-ZñÑ0-9]{5,10}/;
     if (!regExp.test(valorDelCampo)) {
-        document.formulario.error_codempresa.value = "Error encódigo de empresa";
+        document.formulario.error_codempresa.value = "Error en código de empresa";
         document.formulario.error_codempresa.style = "visibility: visible";
         valido = false;
     }
@@ -46,7 +46,7 @@ function validNif_Cif() {
     let cifNif = document.formulario.cifnif.value;
     let resultado = nif_Cif(cifNif);
     if (resultado == "n2" || resultado == "n3" || resultado == "c2" || resultado == 0) {
-        document.formulario.error_nifcif.value = "Error,el nif no es correcto";
+        document.formulario.error_nifcif.value = "Error,el nif  o cif no es correcto";
         document.formulario.error_nifcif.style = "visibility: visible";
         valido = false;
     }
@@ -67,12 +67,12 @@ function botonSelect() {
     let radio = document.formulario.tipopersona;//nos devuelve un nodo con todos los tipopersona
     let tipo = document.formulario.tipo;//nos devuelve un nodo con todos los tipos
     if (!iterateOverRadioGroups(radio)) {
-        document.formulario.error_tipo.value = "Error,debes elegir un tipo";
+        document.formulario.error_tipo.value = "Error,debes elegir un tipo de persona";
         document.formulario.error_tipo.style = "visibility: visible";
         valido = false;
     }
     if (!iterateOverRadioGroups(tipo)) {
-        document.formulario.error_tipoemp.value = "Error,debes elegir un tipo";
+        document.formulario.error_tipoemp.value = "Error,debes elegir un tipo de empresa";
         document.formulario.error_tipoemp.style = "visibility: visible";
         valido = false;
     }
@@ -82,6 +82,7 @@ function botonSelect() {
 function validarDesplegable() {
     let valido = true;
     let indice = document.formulario.comunidades.options;//nos devuelve un array con todas las opciones
+    console.log(indice);
     let counter = 0;//contador para comparar si se cumple el minimo de 2 o no
     for (let i = 0; i < indice.length; i++) {
 
@@ -90,7 +91,11 @@ function validarDesplegable() {
             counter++;
         }
     }
-    if (counter < 2) valido = false;
+    if (counter < 2){
+        document.formulario.error_comunidad.value = "Error,debes elegir al menos dos comunidades";
+        document.formulario.error_comunidad.style = "visibility: visible";
+        valido = false;
+    }
     return valido;
 
 }
